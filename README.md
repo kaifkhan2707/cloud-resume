@@ -2,7 +2,7 @@ Architecture Overview:
 
 User Request:
 
-User initiates a request to the website dawarjafri.com.
+User initiates a request to the website kaifkhan.com.
 DNS Resolution (Amazon Route 53):
 
 Route 53 resolver handles the domain resolution pointing to a CloudFront distribution.
