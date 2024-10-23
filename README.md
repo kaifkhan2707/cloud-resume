@@ -1,32 +1,40 @@
-Architecture Overview:
+## AWS Cloud Resume Challenge
 
-User Request:
+## Architecture
 
-User initiates a request to the website kaifkhan.com.
-DNS Resolution (Amazon Route 53):
+![Architecture Diagram](/img/architecture.png)
 
-Route 53 resolver handles the domain resolution pointing to a CloudFront distribution.
-Content Delivery (Amazon CloudFront):
 
-Route 53 forwards the request to CloudFront distribution, a global content delivery network which serves the static files at edge locations.
-Static Website Hosting (Amazon S3):
+**Architecture Overview:**
 
-CloudFront sends the request to a private S3 bucket containing static website files.
-API Gateway and Lambda Function:
+1.  **User Request:**
 
-Simultaneously, a GET request is sent to an API Gateway endpoint.
-API Gateway triggers a Lambda function responsible for updating and retrieving a visit counter in DynamoDB.
-DynamoDB Database:
+    -   User initiates a request to the website [kaifkhan.com](http://kaifkhan.com).
+2.  **DNS Resolution (Amazon Route 53):**
 
-The Lambda function interacts with DynamoDB to update the counter attribute each time the page is accessed and retrieve the visit counter.
-Response to Website:
+    -   Route 53 resolver handles the domain resolution pointing to a CloudFront distribution.
+3.  **Content Delivery (Amazon CloudFront):**
 
-The Lambda function sends the updated visit counter back to the website and is displayed as Views:.
-Services Used:
+    -   Route 53 forwards the request to CloudFront distribution, a global content delivery network which serves the static files at edge locations.
+4.  **Static Website Hosting (Amazon S3):**
 
-S3
-AWS CloudFront
-Certificate Manager
-AWS Lambda
-Dynamo DB
-GitHub Actions
+    -   CloudFront sends the request to a private S3 bucket containing static website files.
+5.  **API Gateway and Lambda Function:**
+
+    -   Simultaneously, a GET request is sent to an API Gateway endpoint.
+    -   API Gateway triggers a Lambda function responsible for updating and retrieving a visit counter in DynamoDB.
+6.  **DynamoDB Database:**
+
+    -   The Lambda function interacts with DynamoDB to update the counter attribute each time the page is accessed and retrieve the visit counter.
+7.  **Response to Website:**
+
+    -   The Lambda function sends the updated visit counter back to the website and is displayed as `Views:`. 
+
+**Services Used**:
+
+- S3
+- AWS CloudFront
+- Certificate Manager
+- AWS Lambda
+- Dynamo DB
+- GitHub Actions
